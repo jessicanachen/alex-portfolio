@@ -1,26 +1,60 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #EFEFEF;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --primary: #613F75;
+  --secondary: #CFBFF7;
+  --highlight1: #BC4749;
+  --highlight2: #FFBFA0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #EFEFEF;
+  --foreground: #171717;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply font-sans text-5xl font-bold text-primary;
+  }
+
+  h2 {
+    @apply font-sans text-4xl font-bold text-primary;
+  }
+
+  h3 {
+    @apply font-sans text-xl font-bold;
+  }
+
+  h4 {
+    @apply font-montserrat italic;
+  }
+
+  h5 {
+    @apply font-sans text-3xl font-bold;
+  }
+
+  h6 {
+    @apply font-sans text-lg font-bold text-gray-500;
+  }
+
+  p {
+    @apply font-montserrat;
+  }
+
+  ul {
+    @apply list-disc pl-6 mb-4 font-montserrat;
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
 }
+
+
