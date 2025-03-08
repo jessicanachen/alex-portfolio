@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
-// import about from "@/data/about.json";
-// import education from "@/data/education.json";
+import about from "@/data/about.json";
+import education from "@/data/education.json";
 import { useInView } from "react-intersection-observer";
 
 // framer motion without ssr because it was not hydrating correctly with it
@@ -9,39 +9,39 @@ const MotionDiv = dynamic(
   { ssr: false }
 );
 
-const about = [
-  {
-    Title: "PhD Student",
-    Place: "University of California, San Diego",
-    Email: "Email",
-    About:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    Title: "PHD Student",
-    Place: "Place",
-    Email: "Email",
-    About:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-];
+// const about = [
+//   {
+//     Title: "PhD Student",
+//     Place: "University of California, San Diego",
+//     Email: "Email",
+//     About:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//   },
+//   {
+//     Title: "PHD Student",
+//     Place: "Place",
+//     Email: "Email",
+//     About:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//   },
+// ];
 
-const education = [
-  {
-    School: "Duke University",
-    Place: "Durham, NC",
-    Year: 2022,
-    Notes:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    School: "Duke University",
-    Place: "Durham, NC",
-    Year: 2022,
-    Notes:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-];
+// const education = [
+//   {
+//     School: "Duke University",
+//     Place: "Durham, NC",
+//     Year: 2022,
+//     Notes:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//   },
+//   {
+//     School: "Duke University",
+//     Place: "Durham, NC",
+//     Year: 2022,
+//     Notes:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//   },
+// ];
 
 const About = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });

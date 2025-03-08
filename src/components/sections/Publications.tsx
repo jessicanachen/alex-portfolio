@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
-// import publications from '@/data/publications.json';
+import publications from '@/data/publications.json';
 import { PawPrint } from "lucide-react";
 
 const MotionDiv = dynamic(
@@ -22,48 +22,48 @@ interface ConferenceEntry {
   Publications: Publication[];
 }
 
-const publications = [
-  {
-    Conference: "Conference Name",
-    Year: "Jan 2023",
-    Publications: [
-      {
-        Name: "Students Use of GitHub Copilot for Working with Large Code Bases Making it longer to see what happens",
-        Description:
-          "Anshul Shah, Fatimah Alhumrani, William G. Griswold, Leo Porter, and Adalbert Gerald Soosai Raj. 2024. A Comparison of Student Behavioral Engagement in Traditional Live Coding and Active Live Coding Lectures. In Proceedings of the 2024 Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2024), July 8-10, 2024, Milan, Italy. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3649217.3653537",
-        Link: "https://doi.org/10.1145/3649217.3653537",
-      },
-      {
-        Name: "Students Use of GitHub Copilot for Working with Large Code Bases",
-        Description:
-          "Anshul Shah, Fatimah Alhumrani, William G. Griswold, Leo Porter, and Adalbert Gerald Soosai Raj. 2024. A Comparison of Student Behavioral Engagement in Traditional Live Coding and Active Live Coding Lectures. In Proceedings of the 2024 Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2024), July 8-10, 2024, Milan, Italy. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3649217.3653537",
-      },
-    ],
-  },
-  {
-    Conference: "Conference Name",
-    Year: "Jan 2023",
-    Publications: [
-      {
-        Name: "Students Use of GitHub Copilot for Working with Large Code Bases",
-        Description:
-          "Anshul Shah, Fatimah Alhumrani, William G. Griswold, Leo Porter, and Adalbert Gerald Soosai Raj. 2024. A Comparison of Student Behavioral Engagement in Traditional Live Coding and Active Live Coding Lectures. In Proceedings of the 2024 Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2024), July 8-10, 2024, Milan, Italy. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3649217.3653537",
-        Link: "https://doi.org/10.1145/3649217.3653537",
-      },
-    ],
-  },
-  {
-    Conference: "Conference Name",
-    Year: "Jan 2023-Current",
-    Publications: [
-      {
-        Name: "Students Use of GitHub Copilot for Working with Large Code Bases",
-        Description:
-          "Anshul Shah, Fatimah Alhumrani, William G. Griswold, Leo Porter, and Adalbert Gerald Soosai Raj. 2024. A Comparison of Student Behavioral Engagement in Traditional Live Coding and Active Live Coding Lectures. In Proceedings of the 2024 Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2024), July 8-10, 2024, Milan, Italy. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3649217.3653537",
-      },
-    ],
-  },
-];
+// const publications = [
+//   {
+//     Conference: "Conference Name",
+//     Year: "Jan 2023",
+//     Publications: [
+//       {
+//         Name: "Students Use of GitHub Copilot for Working with Large Code Bases Making it longer to see what happens",
+//         Description:
+//           "Anshul Shah, Fatimah Alhumrani, William G. Griswold, Leo Porter, and Adalbert Gerald Soosai Raj. 2024. A Comparison of Student Behavioral Engagement in Traditional Live Coding and Active Live Coding Lectures. In Proceedings of the 2024 Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2024), July 8-10, 2024, Milan, Italy. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3649217.3653537",
+//         Link: "https://doi.org/10.1145/3649217.3653537",
+//       },
+//       {
+//         Name: "Students Use of GitHub Copilot for Working with Large Code Bases",
+//         Description:
+//           "Anshul Shah, Fatimah Alhumrani, William G. Griswold, Leo Porter, and Adalbert Gerald Soosai Raj. 2024. A Comparison of Student Behavioral Engagement in Traditional Live Coding and Active Live Coding Lectures. In Proceedings of the 2024 Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2024), July 8-10, 2024, Milan, Italy. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3649217.3653537",
+//       },
+//     ],
+//   },
+//   {
+//     Conference: "Conference Name",
+//     Year: "Jan 2023",
+//     Publications: [
+//       {
+//         Name: "Students Use of GitHub Copilot for Working with Large Code Bases",
+//         Description:
+//           "Anshul Shah, Fatimah Alhumrani, William G. Griswold, Leo Porter, and Adalbert Gerald Soosai Raj. 2024. A Comparison of Student Behavioral Engagement in Traditional Live Coding and Active Live Coding Lectures. In Proceedings of the 2024 Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2024), July 8-10, 2024, Milan, Italy. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3649217.3653537",
+//         Link: "https://doi.org/10.1145/3649217.3653537",
+//       },
+//     ],
+//   },
+//   {
+//     Conference: "Conference Name",
+//     Year: "Jan 2023-Current",
+//     Publications: [
+//       {
+//         Name: "Students Use of GitHub Copilot for Working with Large Code Bases",
+//         Description:
+//           "Anshul Shah, Fatimah Alhumrani, William G. Griswold, Leo Porter, and Adalbert Gerald Soosai Raj. 2024. A Comparison of Student Behavioral Engagement in Traditional Live Coding and Active Live Coding Lectures. In Proceedings of the 2024 Innovation and Technology in Computer Science Education V. 1 (ITiCSE 2024), July 8-10, 2024, Milan, Italy. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3649217.3653537",
+//       },
+//     ],
+//   },
+// ];
 
 const Publications: React.FC = () => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
