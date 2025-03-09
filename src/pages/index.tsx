@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <div className="flex w-full">
       <NavBar />
-      <div id="scroll-container" className="flex flex-col w-full h-screen pl-64 overflow-y-auto snap-y snap-mandatory scroll-smooth">
+      <div id="scroll-container" className="flex flex-col w-full h-screen pl-16 lg:pl-64 overflow-y-auto snap-y snap-mandatory scroll-smooth">
         <Element
           name="about"
           id="about"
-          className="min-h-fit flex flex-col px-12 snap-start snap-always"
+          className="min-h-fit flex flex-col px-4 lg:px-12 snap-start snap-always"
         >
           <About />
         </Element>
@@ -29,14 +29,14 @@ export default function Home() {
         <Element
           name="service"
           id="service"
-          className="flex flex-col pt-12 snap-start snap-always"
+          className="flex flex-col pt-8 lg:pt-12 snap-start snap-always"
         >
           <Service />
         </Element>
         <Element
           name="publications"
           id="publications"
-          className="min-h-fit flex flex-col px-12 snap-start snap-always"
+          className="min-h-fit flex flex-col px-4 lg:px-12 snap-start snap-always"
         >
           <Publications />
         </Element>

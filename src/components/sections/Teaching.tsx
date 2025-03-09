@@ -1,7 +1,8 @@
 import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import teachingBlurb from '@/data/teaching_blurb.json';
-import teaching from '@/data/teaching.json';
+import teachingBlurb from "@/data/teaching_blurb.json";
+import teaching from "@/data/teaching.json";
 import ta from "@/data/ta.json";
 
 type Coteacher = {
@@ -22,131 +23,6 @@ type TeachingCourse = {
   Description: string;
 };
 
-// const teachingBlurb = [
-//   {
-//     Blurb:
-//       "Lorem ipsum odor amet, consectetuer adipiscing elit. Nisl parturient imperdiet fames nibh justo. Amet neque class dis quam sollicitudin ante natoque sit. Risus curae rhoncus finibus nam potenti. Mus proin suspendisse suscipit sodales adipiscing nostra. Vitae quis est fames phasellus potenti libero. Quis cursus sed egestas quam tempor montes facilisis pulvinar. Sociosqu laoreet augue viverra suspendisse ac mauris aliquet adipiscing. Ridiculus cursus pretium curae pellentesque felis tincidunt. Semper eu non tempus tempus, primis consequat quisque interdum amet! Diam est dolor morbi turpis ullamcorper et metus pellentesque. Libero netus dignissim accumsan ac posuere luctus. Metus eget vivamus litora felis a. At sagittis lacus proin lorem quisque. Etiam netus placerat vulputate lacinia potenti. Senectus consectetur pharetra ex taciti per. Diam luctus condimentum volutpat gravida blandit consectetur rutrum.",
-//   },
-// ];
-
-// const teaching = [
-//   {
-//     Class: "CompSci 210 Introduction to Computer Systems",
-//     Year: [
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//         Coteachers: [
-//           {
-//             Name: "Fain",
-//             Link: "https://sites.duke.edu/btfain/",
-//           },
-//         ],
-//       },
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//         Coteachers: [
-//           {
-//             Name: "Fain",
-//           },
-//           {
-//             Name: "Fain2",
-//             Link: "https://sites.duke.edu/btfain/",
-//           },
-//         ],
-//       },
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//       },
-//     ],
-//     Link: "https://courses.cs.duke.edu/spring23/compsci330/",
-//     Description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//   },
-//   {
-//     Class: "CompSci 210 Introduction to Computer Systems",
-//     Year: [
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//       },
-//     ],
-//     Description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//   },
-// ];
-
-// const ta = [
-//   {
-//     Class: "CompSci 210 Introduction to Computer Systems",
-//     Year: [
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//       },
-//       {
-//         Semester: "Spring",
-//         Year: 2024,
-//       },
-//     ],
-//   },
-//   {
-//     Class: "CompSci 210 Introduction to Computer Systems",
-//     Year: [
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//       },
-//       {
-//         Semester: "Spring",
-//         Year: 2024,
-//       },
-//     ],
-//   },
-//   {
-//     Class: "CompSci 210 Introduction to Computer Systems",
-//     Year: [
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//       },
-//       {
-//         Semester: "Spring",
-//         Year: 2024,
-//       },
-//     ],
-//   },
-//   {
-//     Class: "CompSci 210 Introduction to Computer Systems",
-//     Year: [
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//       },
-//       {
-//         Semester: "Spring",
-//         Year: 2024,
-//       },
-//     ],
-//   },
-//   {
-//     Class: "CompSci 210 Introduction to Computer Systems",
-//     Year: [
-//       {
-//         Semester: "Fall",
-//         Year: 2025,
-//       },
-//       {
-//         Semester: "Spring",
-//         Year: 2024,
-//       },
-//     ],
-//   },
-// ];
-
-// Framer Motion without SSR
 const MotionDiv = dynamic(
   () => import("framer-motion").then((mod) => mod.motion.div),
   { ssr: false }
@@ -156,6 +32,25 @@ const Teaching = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
   const teachingBlurbData = teachingBlurb[0];
 
+  const [expanded, setExpanded] = useState<boolean>(true);
+
+  const toggleExpand = () => {
+    setExpanded((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setExpanded(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   try {
     return (
       <div ref={ref} className="min-h-screen pt-12">
@@ -164,13 +59,22 @@ const Teaching = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
-          className="m-6 px-6 py-6 bg-white rounded-3xl shadow-lg"
+          className="mx-6 lg:m-6 px-6 py-6 bg-white rounded-3xl shadow-lg"
         >
-          <h1 className="pb-2">Teaching</h1>
-          <p>{teachingBlurbData.Blurb}</p>
+          <div className="flex justify-between items-center">
+            <h1 className={`${expanded ? "pb-2" : "pb-0"}`}>Teaching</h1>
+            <button
+              onClick={toggleExpand}
+              className={`lg:hidden text-lg focus:outline-none ${expanded ? "text-highlight1" : "text-highlight2"}`}
+            >
+              {expanded ? "▲" : "▼"}
+            </button>
+          </div>
+
+          <p className={`${expanded ? "flex" : "hidden"}`}>{teachingBlurbData.Blurb}</p>
         </MotionDiv>
 
-        <div className="px-12">
+        <div className="p-8 lg:px-12 lg:py-0">
           {/* Instructing Experience */}
           <MotionDiv
             initial={{ opacity: 0 }}
@@ -181,7 +85,7 @@ const Teaching = () => {
             {teaching.map((course: TeachingCourse, index) => (
               <MotionDiv
                 key={index}
-                className="py-4"
+                className="py-2 lg:py-4"
                 initial={{ opacity: 0, x: -50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -200,7 +104,7 @@ const Teaching = () => {
                     course.Class
                   )}
                 </h3>
-                <h4>
+                <h4 className="py-2">
                   {course.Year.map((year, yIndex) => (
                     <span key={yIndex}>
                       {year.Semester} {year.Year}
@@ -241,7 +145,7 @@ const Teaching = () => {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 1 }}
-            className="py-6"
+            className="py-4 lg:py-6"
           >
             <h2>TA Experience</h2>
             <ul className="py-2">

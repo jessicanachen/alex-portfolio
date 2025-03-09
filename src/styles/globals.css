@@ -20,35 +20,35 @@
 
 @layer base {
   h1 {
-    @apply font-sans text-5xl font-bold text-primary;
+    @apply font-sans text-3xl lg:text-5xl font-bold text-primary;
   }
 
   h2 {
-    @apply font-sans text-4xl font-bold text-primary;
+    @apply font-sans text-2xl lg:text-4xl font-bold text-primary;
   }
 
   h3 {
-    @apply font-sans text-xl font-bold;
+    @apply font-sans text-lg lg:text-xl font-bold;
   }
 
   h4 {
-    @apply font-montserrat italic;
+    @apply text-base font-montserrat italic;
   }
 
   h5 {
-    @apply font-sans text-3xl font-bold;
+    @apply font-sans text-xl lg:text-3xl font-bold;
   }
 
   h6 {
-    @apply font-sans text-lg font-bold text-gray-500;
+    @apply font-sans text-base lg:text-lg font-bold text-gray-500;
   }
 
   p {
-    @apply font-montserrat;
+    @apply text-sm lg:text-base font-montserrat;
   }
 
   ul {
-    @apply list-disc pl-6 mb-4 font-montserrat;
+    @apply list-disc text-sm lg:text-base pl-6 mb-4 font-montserrat;
   }
 }
 
