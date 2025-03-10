@@ -29,7 +29,7 @@ const MotionDiv = dynamic(
 );
 
 const Teaching = () => {
-  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const teachingBlurbData = teachingBlurb[0];
 
   const [expanded, setExpanded] = useState<boolean>(true);
@@ -74,7 +74,7 @@ const Teaching = () => {
           <p className={`${expanded ? "flex" : "hidden"}`}>{teachingBlurbData.Blurb}</p>
         </MotionDiv>
 
-        <div className="p-8 lg:px-12 lg:py-0">
+        <div className="p-8 max-w-2xl lg:max-w-4xl lg:px-12 lg:py-0">
           {/* Instructing Experience */}
           <MotionDiv
             initial={{ opacity: 0 }}

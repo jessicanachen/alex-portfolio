@@ -10,7 +10,7 @@ const MotionDiv = dynamic(
 );
 
 const About = () => {
-  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const aboutData = about[0];
   const headerItems = [
@@ -21,7 +21,7 @@ const About = () => {
 
   try {
     return (
-      <div ref={ref} className="min-h-screen pt-12">
+      <div ref={ref} className="min-h-screen pt-14 lg:pt-24">
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

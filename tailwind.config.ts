@@ -21,6 +21,9 @@ export default {
         highlight1: "var(--highlight1)",
         highlight2: "var(--highlight2)",
       },
+      backgroundImage: {
+        'navbar-gradient': 'radial-gradient(circle, #613f75, #5c3a70, #57356b, #533167, #4e2c62)',
+      },
       fontFamily: {
         
         sans: ['var(--font-open-sans)', 'sans-serif'],        // use with font-sans

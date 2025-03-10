@@ -11,12 +11,6 @@
   --highlight2: #FFBFA0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #EFEFEF;
-  --foreground: #171717;
-  }
-}
 
 @layer base {
   h1 {
@@ -55,6 +49,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  background-image: linear-gradient(630deg, rgba(207,191,247, 0.07) 0%, rgba(207,191,247, 0.07) 42%,transparent 42%, transparent 99%,rgba(255,191,160, 0.12) 99%, rgba(255,191,160, 0.12) 100%),linear-gradient(548deg, rgba(97,63,117, 0.03) 0%, rgba(97,63,117, 0.03) 11%,transparent 11%, transparent 92%,rgba(188,71,73, 0) 92%, rgba(188,71,73, 0) 100%),linear-gradient(482deg, rgba(221,0,0, 0.02) 0%, rgba(221,0,0, 0.02) 1%,transparent 1%, transparent 45%,rgba(229,15,15, 0.02) 45%, rgba(229,15,15, 0.02) 100%),linear-gradient(320deg, rgba(255,255,255, 0.02) 0%, rgba(255,255,255, 0.02) 33%,transparent 33%, transparent 40%,rgba(255,255,255, 0.02) 40%, rgba(255,255,255, 0.02) 100%),linear-gradient(381deg, rgb(240,240,240),rgb(240,240,240));
 }
 
 

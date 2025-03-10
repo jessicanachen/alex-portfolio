@@ -9,7 +9,7 @@ const MotionDiv = dynamic(
 
 
 const Service = () => {
-  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   try {
     return (

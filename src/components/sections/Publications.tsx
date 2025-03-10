@@ -24,7 +24,7 @@ interface ConferenceEntry {
 
 const Publications: React.FC = () => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const toggleExpand = (key: string) => {
     setExpanded((prev) => ({
@@ -35,7 +35,7 @@ const Publications: React.FC = () => {
 
   try {
     return (
-      <div ref={ref} className="min-h-screen pt-12">
+      <div ref={ref} className="min-h-screen pt-16 lg:pt-24">
         <div className="flex lg:hidden">
           <MotionDiv
             initial={{ opacity: 0, y: 20 }}
