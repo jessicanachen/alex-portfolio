@@ -23,6 +23,7 @@ export default {
       },
       backgroundImage: {
         'navbar-gradient': 'radial-gradient(circle, #613f75, #5c3a70, #57356b, #533167, #4e2c62)',
+        'service-gradient': 'linear-gradient(-392deg, #ededed, #f3f3f3, #ededed, #efefef, #e7e7e7)',
       },
       fontFamily: {
         

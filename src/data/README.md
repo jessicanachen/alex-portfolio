@@ -47,6 +47,7 @@ will only ever take the top most json object
 - Role: 
   - Year: int[]
   - Role: string
+  - Description (optional): string
 
 ## Publications
 **Fields**
