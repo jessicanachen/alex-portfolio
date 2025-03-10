@@ -36,12 +36,12 @@ export default function Home() {
       {/* Scrollable content area */}
       <div
         id="scroll-container"
-        className={`flex flex-col w-full h-screen pl-16 lg:pl-64 overflow-y-auto scroll-smooth ${getSnapClasses()}`}
+        className={`flex flex-col w-full h-screen pl-nav-compact lg:pl-nav-width overflow-y-auto scroll-smooth ${getSnapClasses()}`}
       >
         <Element
           name="about"
           id="about"
-          className="min-h-fit max-w-2xl lg:max-w-4xl flex flex-col px-4 lg:px-12 snap-start"
+          className="min-h-fit px-md-spacer lg:px-lg-spacer max-w-2xl lg:max-w-4xl flex flex-col pt-lg-spacer snap-start"
         >
           <About />
         </Element>
@@ -55,14 +55,14 @@ export default function Home() {
         <Element
           name="service"
           id="service"
-          className="flex flex-col pt-8 lg:pt-12 snap-start"
+          className="flex flex-col pt-md-spacer lg:pt-lg-spacer snap-start"
         >
           <Service />
         </Element>
         <Element
           name="publications"
           id="publications"
-          className="min-h-fit flex flex-col px-4 lg:px-12 snap-start"
+          className="min-h-fit flex flex-col pt-lg-spacer px-md-spacer lg:px-lg-spacer snap-start"
         >
           <Publications />
         </Element>
@@ -77,7 +77,7 @@ export default function Home() {
             : snapMode === "normal"
             ? "bg-highlight2 hover:bg-highlight1"
             : "bg-highlight1 hover:bg-primary"
-        } text-white p-2 rounded-full shadow-lg transition-colors`}
+        } text-white p-xs-spacer rounded-full shadow-lg transition-colors`}
         title={`Scroll snapping: ${snapMode}`}
       >
         {snapMode === "none" ? (

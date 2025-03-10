@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import teachingBlurb from "@/data/teaching_blurb.json";
 import teaching from "@/data/teaching.json";
 import ta from "@/data/ta.json";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 type Coteacher = {
   Name: string;
@@ -53,123 +54,131 @@ const Teaching = () => {
 
   try {
     return (
-      <div ref={ref} className="min-h-screen pt-12">
+      <div ref={ref} className="min-h-screen pt-lg-spacer">
         {/* Teaching Blurb */}
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
-          className="mx-6 lg:m-6 px-6 py-6 bg-white rounded-3xl shadow-lg"
+          className="mx-card-padding px-card-padding py-card-padding bg-white rounded-lg shadow-lg"
         >
           <div className="flex justify-between items-center">
-            <h1 className={`${expanded ? "pb-2" : "pb-0"}`}>Teaching</h1>
+            <h1 className={`${expanded ? "pb-xs-spacer" : "pb-0"}`}>
+              Teaching
+            </h1>
             <button
               onClick={toggleExpand}
-              className={`lg:hidden text-lg focus:outline-none ${expanded ? "text-highlight1" : "text-highlight2"}`}
+              className={`lg:hidden text-lg focus:outline-none ${
+                expanded ? "text-highlight1" : "text-highlight2"
+              }`}
             >
-              {expanded ? "▲" : "▼"}
+              {expanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
             </button>
           </div>
 
-          <p className={`${expanded ? "flex" : "hidden"}`}>{teachingBlurbData.Blurb}</p>
+          <p className={`${expanded ? "flex" : "hidden"}`}>
+            {teachingBlurbData.Blurb}
+          </p>
         </MotionDiv>
 
-        <div className="p-8 max-w-2xl lg:max-w-4xl lg:px-12 lg:py-0">
-          {/* Instructing Experience */}
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 1 }}
-          >
-            <h2>Instructor Experience</h2>
-            {teaching.map((course: TeachingCourse, index) => (
-              <MotionDiv
-                key={index}
-                className="py-2 lg:py-4"
-                initial={{ opacity: 0, x: -50 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-              >
-                <h3>
-                  {course.Link ? (
-                    <a
-                      href={course.Link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline"
-                    >
-                      {course.Class}
-                    </a>
-                  ) : (
-                    course.Class
-                  )}
-                </h3>
-                <h4 className="py-2">
-                  {course.Year.map((year, yIndex) => (
-                    <span key={yIndex}>
-                      {year.Semester} {year.Year}
-                      {year.Coteachers &&
-                        year.Coteachers.length > 0 &&
-                        " co-taught with "}
-                      {year.Coteachers &&
-                        year.Coteachers.map((teacher, tIndex) => (
-                          <span key={tIndex}>
-                            {teacher.Link ? (
-                              <a
-                                href={teacher.Link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="underline"
-                              >
-                                {teacher.Name}
-                              </a>
-                            ) : (
-                              teacher.Name
-                            )}
-                            {year.Coteachers &&
-                              tIndex < year.Coteachers.length - 1 &&
-                              ", "}
-                          </span>
-                        ))}
-                      {yIndex !== course.Year.length - 1 && " | "}
-                    </span>
-                  ))}
-                </h4>
-                <p>{course.Description}</p>
-              </MotionDiv>
-            ))}
-          </MotionDiv>
-
-          {/* TA Experience */}
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 1 }}
-            className="py-4 lg:py-6"
-          >
-            <h2>TA Experience</h2>
-            <ul className="py-2">
-              {ta.map((course, index) => (
+        <div className="px-card-padding">
+          <div className="px-card-padding max-w-2xl lg:max-w-4xl pt-md-spacer lg:pt-lg-spacer">
+            {/* Instructing Experience */}
+            <MotionDiv
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 1 }}
+            >
+              <h2>Instructor Experience</h2>
+              {teaching.map((course: TeachingCourse, index) => (
                 <MotionDiv
                   key={index}
+                  className="pt-xs-spacer lg:pt-sm-spacer"
                   initial={{ opacity: 0, x: -50 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                 >
-                  <li>
-                    [
+                  <h3>
+                    {course.Link ? (
+                      <a
+                        href={course.Link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline"
+                      >
+                        {course.Class}
+                      </a>
+                    ) : (
+                      course.Class
+                    )}
+                  </h3>
+                  <h4 className="py-xs-spacer">
                     {course.Year.map((year, yIndex) => (
                       <span key={yIndex}>
                         {year.Semester} {year.Year}
-                        {yIndex < course.Year.length - 1 && ", "}
+                        {year.Coteachers &&
+                          year.Coteachers.length > 0 &&
+                          " co-taught with "}
+                        {year.Coteachers &&
+                          year.Coteachers.map((teacher, tIndex) => (
+                            <span key={tIndex}>
+                              {teacher.Link ? (
+                                <a
+                                  href={teacher.Link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="underline"
+                                >
+                                  {teacher.Name}
+                                </a>
+                              ) : (
+                                teacher.Name
+                              )}
+                              {year.Coteachers &&
+                                tIndex < year.Coteachers.length - 1 &&
+                                ", "}
+                            </span>
+                          ))}
+                        {yIndex !== course.Year.length - 1 && " | "}
                       </span>
                     ))}
-                    ]<b> {course.Class}</b>
-                  </li>
+                  </h4>
+                  <p>{course.Description}</p>
                 </MotionDiv>
               ))}
-            </ul>
-          </MotionDiv>
+            </MotionDiv>
+
+            {/* TA Experience */}
+            <MotionDiv
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 1 }}
+              className="pt-md-spacer lg:pt-lg-spacer"
+            >
+              <h2>TA Experience</h2>
+              <ul className="py-xs-spacer">
+                {ta.map((course, index) => (
+                  <MotionDiv
+                    key={index}
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                  >
+                    <li>
+                      [
+                      {course.Year.map((year, yIndex) => (
+                        <span key={yIndex}>
+                          {year.Semester} {year.Year}
+                          {yIndex < course.Year.length - 1 && ", "}
+                        </span>
+                      ))}
+                      ]<b> {course.Class}</b>
+                    </li>
+                  </MotionDiv>
+                ))}
+              </ul>
+            </MotionDiv>
+          </div>
         </div>
       </div>
     );

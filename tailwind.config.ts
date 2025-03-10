@@ -41,6 +41,23 @@ export default {
         '5xl': generateFontSizeWithLineHeight(3),     // 3rem font with 4.5rem line height
         '6xl': generateFontSizeWithLineHeight(3.75),  // 3.75rem font with 5.625rem line height
       },
+      spacing: {
+        'nav-width': '16rem', 
+        'nav-compact': '4.5rem', 
+        'card-padding': '1.5rem', // for cards and columns
+        'lg-spacer': '3rem',      // for big gaps from the top
+        'md-spacer': '2.5rem',    // for spacing elements within the same big group but not together
+        'sm-spacer': '1rem',
+        'xs-spacer': '.5rem'     // for like text and icon
+        
+
+      },
+      width: {
+        'nav-width': 'var(--nav-width)',
+        'nav-compact': 'var(--nav-compact)',
+        'nav-expanded-compact': '11rem',
+        'content-width': ''
+      },
     },
   },
   plugins: [],

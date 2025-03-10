@@ -21,7 +21,7 @@ const About = () => {
 
   try {
     return (
-      <div ref={ref} className="min-h-screen pt-14 lg:pt-24">
+      <div ref={ref} className="min-h-screen pt-sm-spacer lg:pt-lg-spacer">
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -29,8 +29,9 @@ const About = () => {
           transition={{ duration: 1 }}
         >
           <h1>Alex Chao</h1>
+
           <MotionDiv
-            className="font-sans text-lg lg:text-2xl pb-2 lg:pb-4"
+            className="font-sans text-lg lg:text-2xl pb-xs-spacer lg:pb-card-spacing"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 2 }}
@@ -39,12 +40,13 @@ const About = () => {
           </MotionDiv>
           <p>{aboutData.About}</p>
 
-          <div className="pt-8 lg:pt-12">
+
+          <div className="pt-md-spacer lg:pt-lg-spacer">
             <h2>Education</h2>
             {education.map((edu, index) => (
               <MotionDiv
                 key={index}
-                className="mt-1 lg:mt-2"
+                className="mt-xs-spacer"
                 initial={{ opacity: 0, x: -50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 1, delay: index * 0.2 }}

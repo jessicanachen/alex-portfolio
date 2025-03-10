@@ -61,15 +61,15 @@ const NavBar = () => {
   return (
     <nav
       ref={menuRef}
-      className={`fixed top-0 left-0 h-screen shadow-lg z-10 p-4 bg-navbar-gradient transition-all
-      ${isOpen ? "w-40" : "w-16"} lg:w-64`}
+      className={`fixed top-0 left-0 h-screen shadow-lg p-card-padding z-10 bg-navbar-gradient transition-all
+      ${isOpen ? "w-nav-expanded-compact" : "min-w-nav-compact max-w-nav-compact"} lg:min-w-nav-width lg:max-w-nav-width`}
     >
-      <div className="flex flex-col space-y-10 w-full pt-12 items-center">
+      <div className="flex flex-col space-y-md-spacer w-full pt-lg-spacer items-center">
         <div onClick={toggleMenu} className="cursor-pointer lg:hidden w-full">
           <Menu size={32} className="inline cursor-pointer text-white" />
         </div>
 
-        <div className="w-44 h-44 border-4 border-secondary bg-secondary rounded-full items-center justify-center overflow-hidden hidden lg:flex">
+        <div className="w-5/6 h-5/6 border-4 border-secondary bg-secondary rounded-full items-center justify-center overflow-hidden hidden lg:flex">
           <Image
             src="/headshot.png"
             alt="Headshot"
@@ -79,7 +79,7 @@ const NavBar = () => {
           />
         </div>
 
-        <div className="flex flex-col w-full lg:w-44 space-y-10 text-left">
+        <div className="flex flex-col w-full lg:w-5/6 space-y-md-spacer text-left">
           {navLinks.map(({ to, icon, label }) => {
             const isActive = activeSection === to;
             const showIconUnderline = isActive && !isOpen;
@@ -94,7 +94,7 @@ const NavBar = () => {
                 offset={-64}
                 containerId="scroll-container"
                 activeClass="active"
-                className={`cursor-pointer font-sans text-white font-bold transition-all duration-200 flex items-center gap-2
+                className={`flex items-center gap-xs-spacer cursor-pointer font-sans text-white font-bold transition-all duration-200
                 ${isActive && isOpen ? "underline" : ""} 
                 ${isActive && !isOpen ? "lg:underline" : ""}
                 ${isOpen ? "hover:underline text-secondary" : ""} 
