@@ -33,7 +33,7 @@ const Service = () => {
           {services.map((service, index) => (
             <MotionDiv
               key={index}
-              className="flex flex-col rounded-lg shadow-lg bg-secondary p-card-padding min-w-60 lg:min-w-72"
+              className="flex flex-col rounded-lg shadow-lg bg-secondary p-card-padding in-w-60 lg:min-w-72"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}

@@ -57,9 +57,9 @@ const Teaching = () => {
       <div ref={ref} className="min-h-screen pt-lg-spacer">
         {/* Teaching Blurb */}
         <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
           className="mx-card-padding px-card-padding py-card-padding bg-white rounded-lg shadow-lg"
         >
           <div className="flex justify-between items-center">
@@ -85,9 +85,9 @@ const Teaching = () => {
           <div className="px-card-padding max-w-2xl lg:max-w-4xl pt-md-spacer lg:pt-lg-spacer">
             {/* Instructing Experience */}
             <MotionDiv
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <h2>Instructor Experience</h2>
               {teaching.map((course: TeachingCourse, index) => (
@@ -150,9 +150,9 @@ const Teaching = () => {
 
             {/* TA Experience */}
             <MotionDiv
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="pt-md-spacer lg:pt-lg-spacer"
             >
               <h2>TA Experience</h2>
@@ -160,9 +160,13 @@ const Teaching = () => {
                 {ta.map((course, index) => (
                   <MotionDiv
                     key={index}
-                    initial={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, x: -20 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.15,
+                      ease: "easeOut",
+                    }}
                   >
                     <li>
                       [
