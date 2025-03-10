@@ -3,8 +3,7 @@ import { useState } from "react";
 import { Element } from "react-scroll";
 import {
   AlignVerticalJustifyStart,
-  AlignVerticalSpaceAround,
-  AlignVerticalDistribute,
+  AlignVerticalSpaceAround
 } from "lucide-react";
 
 import NavBar from "@/components/NavBar";
