@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
 import services from "@/data/service.json";
@@ -29,12 +29,23 @@ const Service = () => {
 
   const closeModal = () => setSelectedRole(null);
 
+  const roleColorMap = useMemo(() => {
+    const colorPool = [
+      { bg: "bg-[#ffc0a05d]", text: "text-highlight1" },
+      { bg: "bg-[#cfbff75d]", text: "text-primary" },
+    ];
+
+    return services.map(() => {
+      const shuffledColors = [...colorPool].sort(() => Math.random() - 0.5);
+      return shuffledColors;
+    });
+  }, []);
+
   return (
     <div
       ref={ref}
       className="py-card-padding px-md-spacer lg:px-lg-spacer bg-white"
     >
-      {/* Page Header */}
       <MotionDiv
         initial={{ opacity: 0, y: 16 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -43,12 +54,13 @@ const Service = () => {
         <h1 className="mb-sm-spacer">Academic Service</h1>
       </MotionDiv>
 
-      {/* Grid of Conference Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-card-padding gap-x-sm-spacer mb-card-padding">
         {services.map((role, index) => {
           const uniqueConferences = [
             ...new Set(role.Conference.map((r) => r.Conference)),
           ];
+
+          const colors = roleColorMap[index];
 
           return (
             <MotionDiv
@@ -62,25 +74,9 @@ const Service = () => {
               <h3 className="text-lg font-semibold mb-xs-spacer">
                 {role.Role}
               </h3>
-              {/* It looks funny here if only one of them has a role description but I'll leave it here in case you want it */}
-              {/* <div className="pb-sm-spacer">
-                {role.Description && (
-                  <p className="text-muted">{role.Description}</p>
-                )}
-              </div> */}
               <div className="flex flex-wrap pt-xs-spacer gap-xs-spacer">
                 {uniqueConferences.map((conference, idx) => {
-                  const [randomColors] = useState(() => {
-                    // Generate random colors only once
-                    const colors = [
-                      { bg: "bg-[#ffc0a05d]", text: "text-highlight1" },
-                      { bg: "bg-[#cfbff75d]", text: "text-primary" },
-                    ];
-                    return colors.sort(() => Math.random() - 0.5);
-                  });
-
-                  const color = randomColors[idx % randomColors.length];
-
+                  const color = colors[idx % colors.length];
                   return (
                     <p
                       key={idx}
@@ -96,7 +92,6 @@ const Service = () => {
         })}
       </div>
 
-      {/* Modal with Detailed View */}
       <AnimatePresence>
         {selectedRole && (
           <motion.div
@@ -115,7 +110,6 @@ const Service = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="bgserice-gradient">
-                {/* Close Button */}
                 <button
                   onClick={closeModal}
                   className="absolute top-card-padding right-card-padding text-muted hover:text-black transition"
