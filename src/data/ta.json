@@ -1,5 +1,6 @@
 [
     {
+        "GTA": false,
         "Class": "CompSci 210 Introduction to Computer Systems",
         "Year": [
             {
@@ -13,6 +14,7 @@
         ]
     },
     {
+        "GTA": false,
         "Class": "CompSci 210 Introduction to Computer Systems",
         "Year": [
             {
@@ -26,6 +28,7 @@
         ]
     },
     {
+        "GTA": true,
         "Class": "CompSci 210 Introduction to Computer Systems",
         "Year": [
             {
@@ -39,6 +42,7 @@
         ]
     },
     {
+        "GTA": true,
         "Class": "CompSci 210 Introduction to Computer Systems",
         "Year": [
             {
@@ -52,6 +56,7 @@
         ]
     },
     {
+        "GTA": false,
         "Class": "CompSci 210 Introduction to Computer Systems",
         "Year": [
             {

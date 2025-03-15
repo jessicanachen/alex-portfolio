@@ -41,7 +41,7 @@
   }
 
   ul {
-    @apply list-disc text-sm lg:text-base pl-6 mb-4 font-montserrat;
+    @apply list-disc text-sm lg:text-base pl-6 font-montserrat;
   }
 }
 

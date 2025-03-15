@@ -54,7 +54,7 @@ const Teaching = () => {
 
   try {
     return (
-      <div ref={ref} className="min-h-screen pt-lg-spacer">
+      <div ref={ref} className="min-h-screen py-lg-spacer">
         {/* Teaching Blurb */}
         <MotionDiv
           initial={{ opacity: 0, y: 16 }}
@@ -148,38 +148,77 @@ const Teaching = () => {
               ))}
             </MotionDiv>
 
-            {/* TA Experience */}
+            {/* GTA Experience */}
             <MotionDiv
               initial={{ opacity: 0, y: 8 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="pt-md-spacer lg:pt-lg-spacer"
             >
-              <h2>TA Experience</h2>
+              <h2>GTA Experience</h2>
               <ul className="py-xs-spacer">
-                {ta.map((course, index) => (
+                {ta
+                  .filter((course) => course.GTA)
+                  .map((course, index) => (
                   <MotionDiv
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{
-                      duration: 0.6,
-                      delay: index * 0.15,
-                      ease: "easeOut",
+                    duration: 0.6,
+                    delay: index * 0.15,
+                    ease: "easeOut",
                     }}
                   >
                     <li>
-                      [
-                      {course.Year.map((year, yIndex) => (
-                        <span key={yIndex}>
-                          {year.Semester} {year.Year}
-                          {yIndex < course.Year.length - 1 && ", "}
-                        </span>
-                      ))}
-                      ]<b> {course.Class}</b>
+                    [
+                    {course.Year.map((year, yIndex) => (
+                      <span key={yIndex}>
+                      {year.Semester} {year.Year}
+                      {yIndex < course.Year.length - 1 && ", "}
+                      </span>
+                    ))}
+                    ]<b> {course.Class}</b>
                     </li>
                   </MotionDiv>
-                ))}
+                  ))}
+              </ul>
+            </MotionDiv>
+
+            {/* UTA  */}
+            <MotionDiv
+              initial={{ opacity: 0, y: 8 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="pt-md-spacer lg:pt-lg-spacer"
+            >
+              <h2>UTA Experience</h2>
+              <ul className="py-xs-spacer">
+                {ta
+                  .filter((course) => !course.GTA)
+                  .map((course, index) => (
+                  <MotionDiv
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{
+                    duration: 0.6,
+                    delay: index * 0.15,
+                    ease: "easeOut",
+                    }}
+                  >
+                    <li>
+                    [
+                    {course.Year.map((year, yIndex) => (
+                      <span key={yIndex}>
+                      {year.Semester} {year.Year}
+                      {yIndex < course.Year.length - 1 && ", "}
+                      </span>
+                    ))}
+                    ]<b> {course.Class}</b>
+                    </li>
+                  </MotionDiv>
+                  ))}
               </ul>
             </MotionDiv>
           </div>

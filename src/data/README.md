@@ -36,6 +36,7 @@ will only ever take the top most json object
 
 ## TA
 **Fields**
+- GTA: boolean (true if a GTA position, false if a UTA position)
 - Class: string
 - Year: 
   - Semester: string
