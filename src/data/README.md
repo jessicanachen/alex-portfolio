@@ -31,7 +31,7 @@ will only ever take the top most json object
   - Coteachers (optional):
     - Name: string
     - Link (optional): string (link to a site)
-- Link (optional): string (link to a site)
+  - Link (optional): string (link to a site)
 - Description: string
 
 ## TA

@@ -14,13 +14,13 @@ type Coteacher = {
 type Year = {
   Semester: string;
   Year: number;
+  Link?: string;
   Coteachers?: Coteacher[];
 };
 
 type TeachingCourse = {
   Class: string;
   Year: Year[];
-  Link?: string;
   Description: string;
 };
 
@@ -98,24 +98,24 @@ const Teaching = () => {
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                 >
-                  <h3>
-                    {course.Link ? (
-                      <a
-                        href={course.Link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline"
-                      >
-                        {course.Class}
-                      </a>
-                    ) : (
-                      course.Class
-                    )}
-                  </h3>
+                  <h3>{course.Class}</h3>
                   <h4 className="py-xs-spacer">
                     {course.Year.map((year, yIndex) => (
                       <span key={yIndex}>
-                        {year.Semester} {year.Year}
+                        {year.Link ? (
+                          <a
+                            href={year.Link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline"
+                          >
+                            {year.Semester} {year.Year}
+                          </a>
+                        ) : (
+                          <>
+                            {year.Semester} {year.Year}
+                          </>
+                        )}
                         {year.Coteachers &&
                           year.Coteachers.length > 0 &&
                           " co-taught with "}
@@ -143,7 +143,7 @@ const Teaching = () => {
                       </span>
                     ))}
                   </h4>
-                  <p>{course.Description}</p>
+                  <p className="text-muted">{course.Description}</p>
                 </MotionDiv>
               ))}
             </MotionDiv>
@@ -160,27 +160,27 @@ const Teaching = () => {
                 {ta
                   .filter((course) => course.GTA)
                   .map((course, index) => (
-                  <MotionDiv
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{
-                    duration: 0.6,
-                    delay: index * 0.15,
-                    ease: "easeOut",
-                    }}
-                  >
-                    <li>
-                    [
-                    {course.Year.map((year, yIndex) => (
-                      <span key={yIndex}>
-                      {year.Semester} {year.Year}
-                      {yIndex < course.Year.length - 1 && ", "}
-                      </span>
-                    ))}
-                    ]<b> {course.Class}</b>
-                    </li>
-                  </MotionDiv>
+                    <MotionDiv
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{
+                        duration: 0.6,
+                        delay: index * 0.15,
+                        ease: "easeOut",
+                      }}
+                    >
+                      <li>
+                        [
+                        {course.Year.map((year, yIndex) => (
+                          <span key={yIndex}>
+                            {year.Semester} {year.Year}
+                            {yIndex < course.Year.length - 1 && ", "}
+                          </span>
+                        ))}
+                        ]<b> {course.Class}</b>
+                      </li>
+                    </MotionDiv>
                   ))}
               </ul>
             </MotionDiv>
@@ -197,27 +197,27 @@ const Teaching = () => {
                 {ta
                   .filter((course) => !course.GTA)
                   .map((course, index) => (
-                  <MotionDiv
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{
-                    duration: 0.6,
-                    delay: index * 0.15,
-                    ease: "easeOut",
-                    }}
-                  >
-                    <li>
-                    [
-                    {course.Year.map((year, yIndex) => (
-                      <span key={yIndex}>
-                      {year.Semester} {year.Year}
-                      {yIndex < course.Year.length - 1 && ", "}
-                      </span>
-                    ))}
-                    ]<b> {course.Class}</b>
-                    </li>
-                  </MotionDiv>
+                    <MotionDiv
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{
+                        duration: 0.6,
+                        delay: index * 0.15,
+                        ease: "easeOut",
+                      }}
+                    >
+                      <li>
+                        [
+                        {course.Year.map((year, yIndex) => (
+                          <span key={yIndex}>
+                            {year.Semester} {year.Year}
+                            {yIndex < course.Year.length - 1 && ", "}
+                          </span>
+                        ))}
+                        ]<b> {course.Class}</b>
+                      </li>
+                    </MotionDiv>
                   ))}
               </ul>
             </MotionDiv>

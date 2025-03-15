@@ -59,6 +59,9 @@ export default {
         'nav-expanded-compact': '11rem',
         'content-width': ''
       },
+      textColor: {
+        muted: 'rgba(0, 0, 0, 0.7)',
+      },
     },
   },
   plugins: [],

@@ -108,7 +108,7 @@ const Publications: React.FC = () => {
                           </h6>
 
                           {expanded[`${index}-${pubIndex}`] && (
-                            <p className="pt-xs-spacer break-all">
+                            <p className="pt-xs-spacer break-all text-muted">
                               {pub.Description}
                             </p>
                           )}
@@ -211,7 +211,7 @@ const Publications: React.FC = () => {
                           </h6>
 
                           {expanded[`${index}-${pubIndex}`] && (
-                            <p className="pt-xs-spacer">{pub.Description}</p>
+                            <p className="pt-xs-spacer text-muted">{pub.Description}</p>
                           )}
                         </MotionDiv>
                       ))}
