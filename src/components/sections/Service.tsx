@@ -14,6 +14,7 @@ type ConferenceItem = {
 type RoleItem = {
   Role: string;
   Conference: ConferenceItem[];
+  Description?: string;
 };
 
 // Lazy load motion.div for SSR compatibility
@@ -24,9 +25,7 @@ const MotionDiv = dynamic(
 
 const Service = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [selectedRole, setSelectedRole] = useState<RoleItem | null>(
-    null
-  );
+  const [selectedRole, setSelectedRole] = useState<RoleItem | null>(null);
 
   const closeModal = () => setSelectedRole(null);
 
@@ -47,7 +46,9 @@ const Service = () => {
       {/* Grid of Conference Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-card-padding gap-x-sm-spacer mb-card-padding">
         {services.map((role, index) => {
-          const uniqueConferences = [...new Set(role.Conference.map((r) => r.Conference))];
+          const uniqueConferences = [
+            ...new Set(role.Conference.map((r) => r.Conference)),
+          ];
 
           return (
             <MotionDiv
@@ -61,17 +62,29 @@ const Service = () => {
               <h3 className="text-lg font-semibold mb-xs-spacer">
                 {role.Role}
               </h3>
-              <div className="flex flex-wrap gap-xs-spacer">
+              {/* It looks funny here if only one of them has a role description but I'll leave it here in case you want it */}
+              {/* <div className="pb-sm-spacer">
+                {role.Description && (
+                  <p className="text-muted">{role.Description}</p>
+                )}
+              </div> */}
+              <div className="flex flex-wrap pt-xs-spacer gap-xs-spacer">
                 {uniqueConferences.map((conference, idx) => {
-                  const isFirst = Math.random() < 0.5;
-                  const bgClass = isFirst
-                    ? "bg-[#ffc0a05d] text-highlight1"
-                    : "bg-[#cfbff75d] text-primary";
+                  const [randomColors] = useState(() => {
+                    // Generate random colors only once
+                    const colors = [
+                      { bg: "bg-[#ffc0a05d]", text: "text-highlight1" },
+                      { bg: "bg-[#cfbff75d]", text: "text-primary" },
+                    ];
+                    return colors.sort(() => Math.random() - 0.5);
+                  });
+
+                  const color = randomColors[idx % randomColors.length];
 
                   return (
                     <p
                       key={idx}
-                      className={`${bgClass} text-xs font-bold py-1 px-xs-spacer rounded-full`}
+                      className={`${color.bg} ${color.text} text-xs font-bold py-1 px-xs-spacer rounded-full`}
                     >
                       {conference}
                     </p>
@@ -111,9 +124,15 @@ const Service = () => {
                   <X size={20} />
                 </button>
 
-                <h2>
-                  {selectedRole.Role}
-                </h2>
+                <h2>{selectedRole.Role}</h2>
+
+                <div>
+                  {selectedRole.Description && (
+                    <p className="text-muted py-xs-spacer">
+                      {selectedRole.Description}
+                    </p>
+                  )}
+                </div>
 
                 <div className="space-y-sm-spacer pt-sm-spacer">
                   {selectedRole.Conference.map((conference, idx) => (

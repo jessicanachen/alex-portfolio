@@ -44,10 +44,12 @@ will only ever take the top most json object
 ## Service
 **Fields**
 - Conference: string
+- Description (optional):string
 - Role: 
   - Year: int[]
   - Role: string
   - Description (optional): string
+
 
 ## Publications
 **Fields**
