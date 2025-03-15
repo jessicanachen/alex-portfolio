@@ -60,7 +60,7 @@ const Service = () => {
       className="py-card-padding px-md-spacer lg:px-lg-spacer bg-white"
     >
       <MotionDiv
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: .5, y: 16 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
       >
@@ -94,7 +94,7 @@ const Service = () => {
               role="button"
               aria-pressed="false"
               className="cursor-pointer bg-service-gradient rounded-lg p-card-padding shadow-lg outline-none focus:ring-2 focus:ring-highlight2"
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: .5, scale: 0.95 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
@@ -123,9 +123,9 @@ const Service = () => {
         {selectedRole && (
           <motion.div
             className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-card-padding"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: .5 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            exit={{ opacity: .5 }}
             onClick={closeModal}
             onKeyDown={(e) => {
               if (e.key === "Escape") {

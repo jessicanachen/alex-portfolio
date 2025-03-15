@@ -37,7 +37,7 @@ const Publications: React.FC = () => {
     return (
       <div ref={ref} className="min-h-screen pt-sm-spacer lg:pt-lg-spacer">
         <MotionDiv
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: .5, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         >
@@ -51,7 +51,7 @@ const Publications: React.FC = () => {
                 className={`relative flex flex-col items-center lg:flex-row lg:items-center lg:mb-lg-spacer ${
                   index % 2 === 0 ? "lg:flex-row-reverse" : ""
                 }`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                initial={{ opacity: .5, x: index % 2 === 0 ? -20 : 20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{
                   duration: 0.6,
@@ -89,7 +89,7 @@ const Publications: React.FC = () => {
                       <MotionDiv
                         key={pubIndex}
                         className="mt-xs-spacer lg:mt-sm-spacer"
-                        initial={{ opacity: 0, y: 8 }}
+                        initial={{ opacity: .5, y: 8 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{
                           duration: 0.4,

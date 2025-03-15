@@ -23,7 +23,7 @@ const About = () => {
     return (
       <div ref={ref} className="min-h-screen pt-sm-spacer lg:pt-lg-spacer">
         <MotionDiv
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: .5, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         >
@@ -31,7 +31,7 @@ const About = () => {
 
           <MotionDiv
             className="font-sans text-lg lg:text-2xl pb-xs-spacer lg:pb-card-spacing"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: .5, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 }: {}}
             transition={{
               duration: 0.6,
@@ -49,7 +49,7 @@ const About = () => {
               <MotionDiv
                 key={index}
                 className="mt-xs-spacer"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: .5, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 }: {}}
                 transition={{
                   duration: 0.6,

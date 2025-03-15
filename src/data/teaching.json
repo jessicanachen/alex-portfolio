@@ -17,5 +17,34 @@
             }
         ],
         "Description": "This course aims to build familiarity with mathematical and abstract thinking and to equip students with the concepts and tools needed for advanced topics in computer science. Topics include proof writing; reasoning about graphs, sets, and numbers; and counting techniques and discrete probability."        
+    },
+    {
+        "Class": "CompSci 210 Introduction to Computer Systems",
+        "Year": [
+            {
+                "Semester": "Fall",
+                "Year": 2025,
+                "Coteachers": [{
+                    "Name": "Fain",
+                    "Link": "https://sites.duke.edu/btfain/"
+                }]
+            },
+            {
+                "Semester": "Fall",
+                "Year": 2025,
+                "Coteachers": [{
+                    "Name": "Fain"
+                },
+                {
+                    "Name": "Fain2",
+                    "Link": "https://sites.duke.edu/btfain/"
+                }]
+            },
+            {
+                "Semester": "Fall",
+                "Year": 2025
+            }
+        ],
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
 ]
