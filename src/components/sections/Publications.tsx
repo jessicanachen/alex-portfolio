@@ -43,9 +43,7 @@ const Publications: React.FC = () => {
             transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
           >
             <h1>Publications</h1>
-            <MotionDiv
-              className="relative mt-xs-spacer mx-auto"
-            >
+            <MotionDiv className="relative mt-xs-spacer mx-auto">
               <div className="absolute left-4 transform -translate-x-1/2 w-1 rounded-lg bg-highlight1 h-full"></div>
 
               {publications.map((entry: ConferenceEntry, index: number) => (
@@ -131,9 +129,7 @@ const Publications: React.FC = () => {
             transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
           >
             <h1>Publications</h1>
-            <MotionDiv
-              className="relative mt-lg-spacer mx-auto"
-            >
+            <MotionDiv className="relative mt-lg-spacer mx-auto">
               <div className="absolute left-1/2 transform -translate-x-1/2 w-2 rounded-lg bg-highlight1 h-full"></div>
 
               {publications.map((entry: ConferenceEntry, index: number) => (

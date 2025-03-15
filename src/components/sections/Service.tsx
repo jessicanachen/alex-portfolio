@@ -5,15 +5,15 @@ import services from "@/data/service.json";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-type RoleItem = {
+type ConferenceItem = {
   Year: number[];
-  Role: string;
+  Conference: string;
   Description?: string;
 };
 
-type ServiceItem = {
-  Conference: string;
-  Role: RoleItem[];
+type RoleItem = {
+  Role: string;
+  Conference: ConferenceItem[];
 };
 
 // Lazy load motion.div for SSR compatibility
@@ -24,11 +24,11 @@ const MotionDiv = dynamic(
 
 const Service = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(
+  const [selectedRole, setSelectedRole] = useState<RoleItem | null>(
     null
   );
 
-  const closeModal = () => setSelectedService(null);
+  const closeModal = () => setSelectedRole(null);
 
   return (
     <div
@@ -45,24 +45,24 @@ const Service = () => {
       </MotionDiv>
 
       {/* Grid of Conference Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-card-padding gap-x-sm-spacer">
-        {services.map((service, index) => {
-          const uniqueRoles = [...new Set(service.Role.map((r) => r.Role))];
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-card-padding gap-x-sm-spacer mb-card-padding">
+        {services.map((role, index) => {
+          const uniqueConferences = [...new Set(role.Conference.map((r) => r.Conference))];
 
           return (
             <MotionDiv
               key={index}
-              onClick={() => setSelectedService(service)}
+              onClick={() => setSelectedRole(role)}
               className="cursor-pointer bg-service-gradient rounded-lg p-card-padding shadow-lg"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <h3 className="text-lg font-semibold mb-xs-spacer">
-                {service.Conference}
+                {role.Role}
               </h3>
               <div className="flex flex-wrap gap-xs-spacer">
-                {uniqueRoles.map((role, idx) => {
+                {uniqueConferences.map((conference, idx) => {
                   const isFirst = Math.random() < 0.5;
                   const bgClass = isFirst
                     ? "bg-[#ffc0a05d] text-highlight1"
@@ -73,7 +73,7 @@ const Service = () => {
                       key={idx}
                       className={`${bgClass} text-xs font-bold py-1 px-xs-spacer rounded-full`}
                     >
-                      {role}
+                      {conference}
                     </p>
                   );
                 })}
@@ -85,9 +85,9 @@ const Service = () => {
 
       {/* Modal with Detailed View */}
       <AnimatePresence>
-        {selectedService && (
+        {selectedRole && (
           <motion.div
-            className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-card-padding"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -105,25 +105,25 @@ const Service = () => {
                 {/* Close Button */}
                 <button
                   onClick={closeModal}
-                  className="absolute top-4 right-4 text-muted hover:text-black transition"
+                  className="absolute top-card-padding right-card-padding text-muted hover:text-black transition"
                   aria-label="Close"
                 >
                   <X size={20} />
                 </button>
 
                 <h2>
-                  {selectedService.Conference}
+                  {selectedRole.Role}
                 </h2>
 
                 <div className="space-y-sm-spacer pt-sm-spacer">
-                  {selectedService.Role.map((role, idx) => (
+                  {selectedRole.Conference.map((conference, idx) => (
                     <div key={idx}>
                       <p className="font-semibold">
-                        {role.Role} [{role.Year.join(", ")}]
+                        {conference.Conference} [{conference.Year.join(", ")}]
                       </p>
-                      {role.Description && (
+                      {conference.Description && (
                         <p className="text-sm text-muted mt-1">
-                          {role.Description}
+                          {conference.Description}
                         </p>
                       )}
                     </div>

@@ -1,72 +1,72 @@
 [
     {
-        "Conference": "Program Committee Member",
-        "Role": [
+        "Role": "Program Committee Member",
+        "Conference": [
             {
                 "Year": [2023, 2024, 2025],
-                "Role": "SIGCSE TS"
+                "Conference": "SIGCSE TS"
             },
             {
                 "Year": [2024, 2025],
-                "Role": "RESPECT"
+                "Conference": "RESPECT"
             },
             {
                 "Year": [2025],
-                "Role": "ITiCSE"
+                "Conference": "ITiCSE"
             },
             {
                 "Year": [2025],
-                "Role": "CCSC NE"
+                "Conference": "CCSC NE"
             },
             {
                 "Year": [2024],
-                "Role": "SIGCSE Virtual"
+                "Conference": "SIGCSE Virtual"
             }
         ]
     },
 
     {
-        "Conference": "Session Chair",
-        "Role": [
+        "Role": "Session Chair",
+        "Conference": [
             {
                 "Year": [2023, 2025],
-                "Role": "SIGCSE TS" 
+                "Conference": "SIGCSE TS" 
             }
         ]
     },
     {
-        "Conference": "ACM SIGCSE TS",
-        "Role": [
+        "Role": "ACM SIGCSE TS",
+        "Conference": [
             {
                 "Year": [2023, 2024],
-                "Role": "Reviewer 8"
+                "Conference": "Reviewer 8"
             },
             {
                 "Year": [2023, 2024],
-                "Role": "Reviewer"
+                "Conference": "Reviewer"
             }
         ]
     },
     {
-        "Conference": "ACM SIGCSE TS",
-        "Role": [
+        "Role": "ACM SIGCSE TS",
+        "Conference": [
             {
                 "Year": [2023, 2024],
-                "Role": "Reviewer"
+                "Conference": "Reviewer"
             }
         ]
     },
     {
-        "Conference": "ACM SIGCSE TS",
-        "Role": [
+        "Role": "ACM SIGCSE TS",
+        "Conference": [
             {
                 "Year": [2023, 2024],
-                "Role": "Reviewer 20", 
+                "Conference": "Reviewer 20", 
                 "Description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             },
             {
                 "Year": [2023, 2024],
-                "Role": "Reviewer"
+                "Conference": "Reviewer"
             }
         ]
     }
