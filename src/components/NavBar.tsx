@@ -75,7 +75,7 @@ const NavBar = () => {
           onClick={toggleMenu}
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
-          className="lg:hidden w-full cursor-pointer"
+          className="lg:hidden w-full cursor-pointer  focus:outline-highlight2"
         >
           <Menu size={32} className="text-white" />
         </button>
@@ -109,7 +109,7 @@ const NavBar = () => {
         ${activeSection === to && isOpen ? "underline" : ""} 
         ${activeSection === to && !isOpen ? "lg:underline" : ""}
         ${isOpen ? "hover:underline text-secondary" : ""} 
-        lg:hover:underline rounded-md p-1`}
+        lg:hover:underline rounded-md p-1  focus:outline-highlight2`}
                   >
                     <span
                       className={`relative inline-block
