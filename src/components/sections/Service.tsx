@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
 import services from "@/data/service.json";
@@ -26,8 +26,15 @@ const MotionDiv = dynamic(
 const Service = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const [selectedRole, setSelectedRole] = useState<RoleItem | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+  const lastFocusedCardRef = useRef<HTMLDivElement | null>(null);
 
-  const closeModal = () => setSelectedRole(null);
+  const closeModal = () => {
+    setSelectedRole(null);
+    setTimeout(() => {
+      lastFocusedCardRef.current?.focus();
+    }, 0); // time out so after modal dismount
+  };
 
   const roleColorMap = useMemo(() => {
     const colorPool = [
@@ -40,6 +47,12 @@ const Service = () => {
       return shuffledColors;
     });
   }, []);
+
+  useEffect(() => {
+    if (selectedRole && closeBtnRef.current) {
+      closeBtnRef.current.focus();
+    }
+  }, [selectedRole]);
 
   return (
     <div
@@ -65,8 +78,22 @@ const Service = () => {
           return (
             <MotionDiv
               key={index}
-              onClick={() => setSelectedRole(role)}
-              className="cursor-pointer bg-service-gradient rounded-lg p-card-padding shadow-lg"
+              onClick={(e) => {
+                lastFocusedCardRef.current = e.currentTarget;
+                setSelectedRole(role);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  lastFocusedCardRef.current =
+                    e.currentTarget as HTMLDivElement;
+                  setSelectedRole(role);
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-pressed="false"
+              className="cursor-pointer bg-service-gradient rounded-lg p-card-padding shadow-lg outline-none focus:ring-2 focus:ring-highlight2"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -100,6 +127,12 @@ const Service = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeModal}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                closeModal();
+              }
+            }}
+            tabIndex={-1}
           >
             <motion.div
               className="bg-background rounded-xl shadow-xl max-w-2xl w-full p-card-padding relative overflow-y-auto max-h-[90vh]"
@@ -111,8 +144,9 @@ const Service = () => {
             >
               <div className="bgserice-gradient">
                 <button
+                  ref={closeBtnRef}
                   onClick={closeModal}
-                  className="absolute top-card-padding right-card-padding text-muted hover:text-black transition"
+                  className="absolute top-card-padding right-card-padding text-muted hover:text-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded"
                   aria-label="Close"
                 >
                   <X size={20} />

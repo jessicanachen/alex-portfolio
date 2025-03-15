@@ -75,7 +75,7 @@ const NavBar = () => {
           onClick={toggleMenu}
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
-          className="lg:hidden w-full cursor-pointer "
+          className="lg:hidden w-full cursor-pointer"
         >
           <Menu size={32} className="text-white" />
         </button>
