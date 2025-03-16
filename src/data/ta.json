@@ -35,8 +35,13 @@
         "Class": "CS230 Discrete Mathematics for Computer Science",
         "Year": [
             {
-                "Semester": "Spring",
-                "Year": 2024
+                "Semester": "Fall",
+                "Year": 2021
+            },
+           "Year": [
+            {
+                "Semester": "Fall",
+                "Year": 2020
             }
         ]
     }
