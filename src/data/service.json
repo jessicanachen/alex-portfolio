@@ -1,7 +1,7 @@
 [
     {
         "Role": "Program Committee Member",
-        "Description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "Description": "",
         "Conference": [
             {
                 "Year": [2023, 2024, 2025],
@@ -22,7 +22,11 @@
             {
                 "Year": [2024],
                 "Conference": "SIGCSE Virtual"
+            },
+            {   "Year": [2025], 
+                "Conference": "CompEd"
             }
+        
         ]
     },
 
@@ -36,15 +40,15 @@
         ]
     },
     {
-        "Role": "ACM SIGCSE TS",
+        "Role": "Poster Judge",
         "Conference": [
             {
-                "Year": [2023, 2024],
-                "Conference": "Reviewer 8"
+                "Year": [2025],
+                "Conference": "SIGCSE TS"
             },
             {
-                "Year": [2023, 2024],
-                "Conference": "Reviewer"
+                "Year": [2024],
+                "Conference": "Tapia Conference"
             }
         ]
     },
