@@ -1,68 +1,39 @@
 [
+   
     {
-        "GTA": false,
-        "Class": "CompSci 210 Introduction to Computer Systems",
+        "GTA": true,
+        "Class": "CS516 Database Systems",
         "Year": [
             {
-                "Semester": "Fall",
-                "Year": 2025
-            },
-            {
                 "Semester": "Spring",
-                "Year": 2024
+                "Year": 2025
             }
         ]
     },
     {
-        "GTA": false,
-        "Class": "CompSci 210 Introduction to Computer Systems",
+        "GTA": true,
+        "Class": "CS316 Introduction to Database Systems",
         "Year": [
             {
                 "Semester": "Fall",
-                "Year": 2025
-            },
-            {
-                "Semester": "Spring",
                 "Year": 2024
             }
         ]
     },
     {
         "GTA": true,
-        "Class": "CompSci 210 Introduction to Computer Systems",
+        "Class": "CS230 Discrete Mathematics for Computer Science",
         "Year": [
-            {
-                "Semester": "Fall",
-                "Year": 2025
-            },
             {
                 "Semester": "Spring",
                 "Year": 2024
             }
         ]
     },
-    {
-        "GTA": true,
-        "Class": "CompSci 210 Introduction to Computer Systems",
-        "Year": [
-            {
-                "Semester": "Fall",
-                "Year": 2025
-            },
-            {
-                "Semester": "Spring",
-                "Year": 2024
-            }
-        ]
-    },
-    {
+     {
         "GTA": false,
-        "Class": "CompSci 210 Introduction to Computer Systems",
+        "Class": "CS230 Discrete Mathematics for Computer Science",
         "Year": [
-            {
-                "Semester": "Fall",
-                "Year": 2025
-            },
             {
                 "Semester": "Spring",
                 "Year": 2024
