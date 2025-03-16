@@ -30,13 +30,37 @@
             }
         ]
     },
+   {
+        "GTA": false,
+        "Class": "CS101 Introduction to Computer Science",
+        "Year": [
+            {
+                "Semester": "Fall",
+                "Year": 2019
+            }
+        ]
+    },
      {
         "GTA": false,
         "Class": "CS230 Discrete Mathematics for Computer Science",
         "Year": [
             {
                 "Semester": "Fall",
+                "Year": 2020
+            },
+            {
+                "Semester": "Fall",
                 "Year": 2021
+            }
+        ]
+    },
+    {
+        "GTA": false,
+        "Class": "CS250 Computer Architecture",
+        "Year": [
+            {
+                "Semester": "Spring",
+                "Year": 2020
             },
             {
                 "Semester": "Fall",
