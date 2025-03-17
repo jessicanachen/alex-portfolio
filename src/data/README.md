@@ -7,7 +7,8 @@ will only ever take the top most json object
 - Title (optional): string
 - Place (optional): string
 - Email (optional): string
-- About: string
+- About: string -- in about wrap the stuff you want with links in [[]], the first [[]] will get the first link in Links... (DO NOT USE [[]] anywhere else in about)
+- Links (optional): string[] links
 
 ## Education
 **Fields**
