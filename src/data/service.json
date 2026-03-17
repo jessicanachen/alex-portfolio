@@ -4,7 +4,7 @@
         "Description": "",
         "Conference": [
             {
-                "Year": [2023, 2024, 2025],
+                "Year": [2023, 2024, 2025, 2026],
                 "Conference": "SIGCSE TS"
             },
             {
@@ -12,9 +12,12 @@
                 "Conference": "RESPECT"
             },
             {
-                "Year": [2025],
+                "Year": [2025, 2026],
                 "Conference": "ITiCSE"
             },
+            {
+                "Year": [2026],
+                "Conference": "ACSW" 
             {
                 "Year": [2025],
                 "Conference": "CCSC NE"
@@ -43,7 +46,7 @@
         "Role": "Poster Judge",
         "Conference": [
             {
-                "Year": [2025],
+                "Year": [2025, 2026],
                 "Conference": "SIGCSE TS"
             },
             {
