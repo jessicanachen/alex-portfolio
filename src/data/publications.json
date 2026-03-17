@@ -1,12 +1,24 @@
 [
+      {
+        "Conference": "SIGCSE TS",
+        "Year": "February 2026",
+        "Publications": [
+            {
+                "Name": "How Shared Gender Identity with Teaching Assistants Relates to Student Outcomes in an Undergraduate Algorithms Course",
+                "Description": "Alex Chao, Janet Jiang, and Kristin Stephens-Martinez. 2026. How SharedGender Identity with Teaching Assistants Relates to Student Outcomesin an Undergraduate Algorithms Course. In Proceedings of the 57th ACMTechnical Symposium on Computer Science Education V.1 (SIGCSE TS 2026),February 18–21, 2026, St. Louis, MO, USA. ACM, New York, NY, USA, 183-189.",
+                "Link": "https://dl.acm.org/doi/10.1145/3770762.3772543"
+            }
+        ]
+    },
+     
      {
         "Conference": "ITiCSE",
         "Year": "June 2025",
         "Publications": [
             {
-                "Name": "Fairness in Student Allocation and Group Formation",
-                "Description": "Matthew Forshaw, Cristina Adriana Alexadru, Caitlin Bentley, Vladimiro González-Zelaya, Joseph Kwame Adjei, Vangel Ajanovski, Mireilla Bikanga Ada, Julian Brooks, Joshua Burridge, Alex Chao, Rutwa Engineer, Olga Glebova, Tasmina Islam, Mitsuka Kiyohara, Shao-Heng Ko, Ellert Smári Kristbergsson, Svetlana Peltsverger, Seán Russell, Maíra Marques Samary, Merel Steenbergen, and Carolin Wortmann. 2025. Fairness in Student Allocation and Group Formation. In Proceedings of the 30th ACM Conference on Innovation and Technology in Computer Science Education V. 2 (ITiCSE 2025). Association for Computing Machinery, New York, NY, USA, 699–700.",
-                "Link": "https://doi.org/10.1145/3724389.3731280"
+                "Name": "Fairness in Student Group Formation: Perspectives, Priorities, Compromises, Mechanisms, and Tooling",
+                "Description": "Matthew Forshaw, Cristina Adriana Alexandru, Caitlin Bentley, VladimiroGonzález-Zelaya, Vangel Ajanovski, Mireilla Bikanga Ada, Julian Brooks,Joshua Burridge, Alex Chao, Rutwa Engineer, Olga Glebova, Tasmina Is-lam, Mitsuka Kiyohara, Shao-Heng Ko, Ellert Smári Kristbergsson, Svet-lana Peltsverger, Seán Russell, Maíra Marques Samary, Merel Steenber-gen, and Carolin Wortmann. 2025. Fairness in Student Group Formation:Perspectives, Priorities, Compromises, Mechanisms, and Tooling. In 2025Working Group Reports on Innovation and Technology in Computer ScienceEducation (ITiCSE-WGR 2025), June 27-July 2, 2025, Nijmegen, Netherlands.ACM, New York, NY, USA, 217-276.",
+                "Link": "https://dl.acm.org/doi/10.1145/3760545.3783973"
             }
         ]
     },
