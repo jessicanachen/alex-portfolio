@@ -14,7 +14,8 @@
             },
             {
                 "Semester": "Summer",
-                "Year": 2025
+                "Year": 2025, 
+                "Link": "https://sites.google.com/cs.duke.edu/cs230-summer-25/cps-230-discrete-math"
             }
         ],
         "Description": "This course aims to build familiarity with mathematical and abstract thinking and to equip students with the concepts and tools needed for advanced topics in computer science. Topics include proof writing; reasoning about graphs, sets, and numbers; and counting techniques and discrete probability."        
